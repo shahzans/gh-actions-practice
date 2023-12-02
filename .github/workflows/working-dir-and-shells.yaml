@@ -1,0 +1,23 @@
+name: Working Dir & Shells
+on: [push]
+jobs:
+  display-working-dir-info-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Working Dir & List Files
+        run: |
+          pwd
+          ls -ltah
+          echo $GITHUB_SHA #Commit ID that triggered the workflow
+          echo $GITHUB_REPOSITORY #GitHub Repository Info
+          echo $GITHUB_WORKSPACE #Default directory on the runner that would be used to run the commands
+  display-working-dir-info-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Display Working Dir & List Files
+        run: |
+          Get-Location
+          dir
+          echo $env:GITHUB_SHA #Commit ID that triggered the workflow
+          echo $env:GITHUB_REPOSITORY #GitHub Repository Info
+          echo $env:GITHUB_WORKSPACE #Default directory on the runner that would be used to run the commands

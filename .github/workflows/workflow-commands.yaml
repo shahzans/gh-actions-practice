@@ -23,6 +23,6 @@ jobs:
           echo "Message 2"
           echo "::endgroup"
       - name: Masking a value
-        run: echo "::add-mask::Secret String">/dev/null
+        run: echo "::add-mask::Secret String"
       - name: Echo a string
         run: echo "Secret String"

@@ -1,0 +1,38 @@
+name: Working Dir & Shells
+on: [push]
+defaults:
+  run:
+    shell: bash
+    # working-directory: /home/shaz
+jobs:
+  display-working-dir-info-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Working Dir & List Files
+        run: |
+          pwd
+          ls -ltah
+          echo $GITHUB_SHA #Commit ID that triggered the workflow
+          echo $GITHUB_REPOSITORY #GitHub Repository Info
+          echo $GITHUB_WORKSPACE #Default directory on the runner that would be used to run the commands
+      - name: Change Working Directory
+        working-directory: /home/runner
+        run: pwd
+  display-working-dir-info-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Display Working Dir & List Files
+        run: |
+          Get-Location
+          dir
+          echo $env:GITHUB_SHA #Commit ID that triggered the workflow
+          echo $env:GITHUB_REPOSITORY #GitHub Repository Info
+          echo $env:GITHUB_WORKSPACE #Default directory on the runner that would be used to run the commands
+      - name: Python Shell
+        shell: python
+        run: |
+          import platform
+          print(platform.processor())

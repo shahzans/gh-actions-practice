@@ -8,13 +8,13 @@ jobs:
       - name: Setting an error message
         run: echo "::error::Missing semicolon"
       - name: Setting an error message with params
-        run: echo "::error title=Error title,file=app.js,line=2,endLine=5,col=5,endColumn=7::Missing semicolon"
+        run: echo "::error title=Error Message,file=app.js,line=2,endLine=5,col=5,endColumn=7::Missing semicolon"
       - name: Setting an debug message with params
-        run: echo "::debug title=Debug title,file=app.js,line=2,endLine=5,col=5,endColumn=7::Missing semicolon"
+        run: echo "::debug title=Debug Message,file=app.js,line=2,endLine=5,col=5,endColumn=7::Missing semicolon"
       - name: Setting an warning message with params
-        run: echo "::warning title=Warning title,file=app.js,line=2,endLine=5,col=5,endColumn=7::Missing semicolon"
+        run: echo "::warning title=Warning Message,file=app.js,line=2,endLine=5,col=5,endColumn=7::Missing semicolon"
       - name: Setting an notice message with params
-        run: echo "::notice title=Notice title,file=app.js,line=2,endLine=5,col=5,endColumn=7::Missing semicolon"
+        run: echo "::notice title=Notice Message,file=app.js,line=2,endLine=5,col=5,endColumn=7::Missing semicolon"
       - name: Group of logs
         run: |
           echo "::group::My Group Title"
@@ -23,6 +23,6 @@ jobs:
           echo "Message 2"
           echo "::endgroup"
       - name: Masking a value
-        run: echo "::add-mask::Secret String"
+        run: echo "::add-mask::Secret String">/dev/null
       - name: Echo a string
         run: echo "Secret String"

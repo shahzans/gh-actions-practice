@@ -1,5 +1,8 @@
 name: Working Dir & Shells
 on: [push]
+defaults:
+  run:
+    shell: bash
 jobs:
   display-working-dir-info-ubuntu:
     runs-on: ubuntu-latest
@@ -13,6 +16,9 @@ jobs:
           echo $GITHUB_WORKSPACE #Default directory on the runner that would be used to run the commands
   display-working-dir-info-windows:
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
     steps:
       - name: Display Working Dir & List Files
         run: |
